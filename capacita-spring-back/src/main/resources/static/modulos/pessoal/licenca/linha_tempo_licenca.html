@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Capacita RFB - Linha do tempo</title>
+    <link rel="icon" href="/imagens/favicon.ico">
+
+    <script src="/bibliotecas/vis.js/vis-timeline-graph2d.min.js"></script>
+    <link href="/bibliotecas/vis.js/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/bibliotecas/jquery/jquery-3.3.1.min.js"></script>
+    <script src='/bibliotecas/bootstrap-4.5.3-dist/js/bootstrap.min.js'></script>
+    <link rel='stylesheet' href='/bibliotecas/bootstrap-4.5.3-dist/css/bootstrap.min.css'>
+
+    <!-- ******* -->
+    <!-- Estilos -->
+    <!-- ******* -->
+    <link href="/estilos.css" rel="stylesheet" type="text/css">
+
+    <script type="module">
+        import { LinhaTempoLicenca } from './linha_tempo_licenca.js';
+        import { PessoalService } from '../pessoal_service.js';
+
+        window.onload = () => {
+            PessoalService.INSTANCE.minhasLicencas().then(licencas => {
+                document.querySelector("linha-tempo-licenca").licencas = licencas;
+            });
+        };
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="marcaDAgua"></div>
+    <div class="conteinerDaPagina" id="principal" style="width:100%; height:700px">
+        <linha-tempo-licenca></linha-tempo-licenca>
+    </div>
+</body>
+</html>

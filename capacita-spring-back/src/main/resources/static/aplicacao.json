@@ -1,0 +1,92 @@
+{
+  "informacoes": {
+    "nome": "Capacita RFB",
+    "sigla": "CapacitaRFB",
+    "descricao": "Soluções e integrações relacionadas a capacitação na Receita Federal do Brasil",
+    "profile": "@spring.profiles.active@"
+  },  
+  "menus": [  
+  	{
+  		"nome": "Minhas informações",
+  		"filhos":[
+  			{
+	  			"nome":"Dados cadastrais",
+		  		"modulo": "/modulos/pessoal/colaborador/minhas_informacoes_view.js",
+		  		"componente": "minhas-informacoes-view",
+		  		"eventoRetorno": "atualizar",
+		  		"funcaoRetorno": "atualizar"
+	  		},
+	  		{
+	  			"nome":"Licenças Capacitação",
+		  		"modulo": "/modulos/pessoal/licenca/minhas_licencas_view.js",
+		  		"componente": "minhas-licencas-view",
+		  		"habilitado": "true",
+		  		"navegacao": [
+		            {
+		              "evento": "exibirLicenca",
+		              "nome": "Licença",
+		              "modulo": "/modulos/pessoal/licenca/licenca_view.js",
+		              "componente": "licenca-view",
+		              "eventoRetorno": "atualizarLicenca",
+		              "funcaoRetorno": "atualizarLicenca"
+		            }
+		          ]
+	  		},
+            {
+	  			"nome":"Linha do Tempo Capacitação",
+		  		"modulo": "/modulos/pessoal/licenca/linha_tempo_licenca.html",
+		  		"novaJanela": "true",
+		  		"habilitado": "true"
+	  		}
+	  	]
+	  		
+  	}, 
+    {
+      "nome": "Sistema",
+      "filhos": [
+        {
+          "nome": "Usuários e Autorizações",
+          "modulo": "/modulos/sistema/usuario/usuarios_view.js",
+          "componente": "usuarios-view",
+          "habilitado": "true",
+          "navegacao": [
+            {
+              "evento": "exibirDetalhe",
+              "nome": "Usuário",
+              "modulo": "/modulos/sistema/usuario/usuario_view.js",
+              "componente": "usuario-view",
+              "eventoRetorno": "atualizar",
+              "funcaoRetorno": "atualizar"
+            }
+          ]
+        },
+        {
+          "nome": "Módulos",
+          "modulo": "/modulos/sistema/modulo/modulos_view.js",
+          "componente": "modulos-view",
+          "habilitado": "true",
+          "navegacao": [
+            {
+              "evento": "exibirDetalhe",
+              "nome": "Módulo",
+              "modulo": "/modulos/sistema/modulo/modulo_view.js",
+              "componente": "modulo-view",
+              "eventoRetorno": "atualizar",
+              "funcaoRetorno": "atualizar",
+              "navegacao": [
+                {
+                  "evento": "exibirPermissao",
+                  "nome": "Permissão",
+                  "modulo": "/modulos/sistema/permissao/permissao_view.js",
+                  "componente": "permissao-view",
+                  "eventoRetorno": "atualizarPermissao",
+                  "funcaoRetorno": "atualizarPermissao"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
